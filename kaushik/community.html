@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandal Members</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgb(0,0,0), rgb(255,255,255));
+        }
+
+        .member_heading {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: rgb(255,255,255);
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .member_heading img.logo {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            width: 80px;
+            height: auto;
+            max-width: 100%;
+        }
+
+        .member_heading h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            padding-left: 90px;
+        }
+
+        .member_heading h2 {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            padding-left: 90px;
+        }
+
+        .membernavbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            background-color: rgb(44,62,80);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .membernavbar a {
+            color: rgb(255,255,255);
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 2px 5px;
+            font-size: 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .membernavbar a:hover {
+            background-color: rgb(52,73,94);
+        }
+
+        .ngomembers {
+            flex: 1;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .member_header {
+            text-align: center;
+            color: rgb(30,30,30);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .member_header:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #2c3e50, #3498db);
+        }
+
+        .memberlist {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .memberlist th {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: rgb(255, 255, 255);
+            padding: 12px;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+
+        .memberlist td {
+            border: 1px solid rgb(224, 224, 224);
+            padding: 12px;
+            color: rgb(51, 51, 51);
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .memberlist tr:nth-child(even) {
+            background: linear-gradient(to right, rgb(52,152,219), rgb(255,255,255));
+        }
+
+        .memberlist tr:nth-child(odd) {
+            
+            background: linear-gradient(to right, rgb(255,255,255), rgb(52,152,219));
+        }
+
+        .memberlist tr:hover {
+            background-color: rgb(227, 242, 253);
+        }
+
+        .contactdetails {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: rgb(255,255,255);
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .contactdetails h2 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .contactdetails div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contactdetails a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(46,204,113,0.8));
+            color: rgb(255,255,255);
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            margin-top: auto;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .member_heading {
+                padding: 20px 15px;
+            }
+            
+            .member_heading img.logo {
+                width: 70px;
+                left: 10px;
+            }
+            
+            .member_heading h1 {
+                font-size: 1.5rem;
+                padding-left: 80px;
+            }
+            
+            .member_heading h2 {
+                font-size: 0.9rem;
+                padding-left: 80px;
+            }
+            
+            .membernavbar a {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .ngomembers {
+                padding: 15px;
+            }
+            
+            .member_header {
+                font-size: 1.5rem;
+            }
+            
+            .memberlist th, 
+            .memberlist td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .member_heading {
+                padding: 15px 10px;
+            }
+            
+            .member_heading img.logo {
+                width: 60px;
+                left: 8px;
+            }
+            
+            .member_heading h1 {
+                font-size: 1.3rem;
+                padding-left: 70px;
+                margin-bottom: 5px;
+            }
+            
+            .member_heading h2 {
+                font-size: 0.8rem;
+                padding-left: 70px;
+            }
+            
+            .membernavbar {
+                padding: 8px 0;
+            }
+            
+            .membernavbar a {
+                padding: 5px 8px;
+                font-size: 0.8rem;
+                margin: 2px;
+            }
+            
+            .member_header {
+                font-size: 1.3rem;
+            }
+            
+            .memberlist th, 
+            .memberlist td {
+                padding: 6px;
+                font-size: 0.8rem;
+            }
+            
+            .contactdetails h2 {
+                font-size: 1.1rem;
+            }
+            
+            .contactdetails a {
+                font-size: 0.9rem;
+            }
+            
+            footer {
+                padding: 12px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .memberlist {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            
+            .contactdetails div {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style> 
+</head>
+<body>
+    <header class="member_heading">
+        <img src="images/logo.jpg" alt="Adarsh Jan Seva Mandal Logo" class="logo">
+        <h1>Adarsh Jan Seva Mandal</h1> 
+        <h2>Together we can make a difference and change lives</h2>   
+    </header>
+    
+    <nav class="membernavbar">
+        <a href="aboutus.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="donate.html">Donate</a>
+        <a href="ngomembers.html">Community</a>
+        <a href="loginpage.html" class="login">Login</a>
+    </nav>
+    
+    <div class="ngomembers">
+        <div class="member_header">
+            <h2>OUR MEMBERS</h2>
+        </div>
+        
+        <table class="memberlist">
+            <tr>
+                <th>Members</th>
+                <th>Designation</th>
+            </tr>
+            <tr>
+                <td>Hardwar Singh</td>
+                <td>President and Founder Member</td>
+            </tr>
+            <tr>
+                <td>Vinod Singh</td>
+                <td>Founder member</td>
+            </tr>
+            <tr>
+                <td>Arvind Singh</td>
+                <td>Vice President and Founder member</td>
+            </tr>
+            <tr>
+                <td>Santosh Singh</td>
+                <td>Vice President</td>
+            </tr>
+            <tr>
+                <td>Vinay Singh</td>
+                <td>Secretary and Trustee</td>
+            </tr>
+            <tr>
+                <td>Ajeet Singh</td>
+                <td>Treasurer</td>
+            </tr>
+            <tr>
+                <td>Manoj Singh</td>
+                <td>Assistant Treasurer</td>
+            </tr>
+            <tr>
+                <td>Manoj R Singh</td>
+                <td>Patron Member</td>
+            </tr>
+            <tr>
+                <td>Ajay Singh</td>
+                <td>Patron Member</td>
+            </tr>
+            <tr>
+                <td>Kamlesh Singh</td>
+                <td>Vice Secretary</td>
+            </tr>
+            <tr>
+                <td>R D Singh</td>
+                <td>Founder Member</td>
+            </tr>
+            <tr>
+                <td>S.B Giri</td>
+                <td>Trustee & advisor</td>
+            </tr>
+            <tr>
+                <td>R.N Singh</td>
+                <td>Founder Member & advisor</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="contactdetails">
+        <h2>Helpdesk and Location</h2>
+        <div>
+            <a>Address: Hindi High School, Ghatkopar (W.), Mumbai - 400086.</a>
+            <a>Contact No:-9322400937</a>
+        </div>       
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Adarsh Jan Seva Mandal | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

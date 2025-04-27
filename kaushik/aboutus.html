@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Adarsh Jan Seva Mandal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0,0,0), rgba(255,255,255));
+            color: rgb(30,30,30);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, rgb(52,152,219));
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        header img.logo {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            width: 80px;
+            height: auto;
+            max-width: 100%;
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            padding-left: 90px; /* Space for logo */
+        }
+        
+        header h2 {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            padding-left: 90px; /* Space for logo */
+        }
+        
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            background-color: #34495e;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .navbar a {
+            color: rgb(220, 220, 220);
+            text-decoration: none;
+            padding: 8px 15px;
+            margin: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        
+        .navbar a:hover {
+            background-color: #465c71;
+            transform: translateY(-2px);
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            
+        }
+        
+        .panel {
+            margin: 20px 0;
+            padding: 20px;             
+            background: linear-gradient(135deg, rgba(255,255,255), rgba(52,152,219)); 
+            border-top: 4px solid rgb(65, 105, 225);  
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .panel h2 {
+            color: rgb(25, 25, 112);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgb(52,152,219);
+            padding-bottom: 5px;
+        }
+        
+        .panel h3 {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgb(60,60,60);
+            margin-top: 15px;
+        }
+        
+        .panel p, .panel li {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgb(40,40,40);
+            margin-bottom: 15px;
+        }
+        
+        .panel ul {
+            padding-left: 20px;
+        }
+        
+        .panel li {
+            margin-bottom: 20px;
+            list-style-type: none;
+        }
+        
+        .panel li:before {
+            content: "•";
+            color: rgb(65, 105, 225);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(46,204,113,0.8));
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 25px 15px;
+            }
+            
+            header img.logo {
+                width: 60px;
+                left: 15px;
+            }
+            
+            header h1 {
+                font-size: 1.5rem;
+                padding-left: 75px;
+            }
+            
+            header h2 {
+                font-size: 0.9rem;
+                padding-left: 75px;
+            }
+            
+            .navbar a {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+                margin: 3px;
+            }
+            
+            .main-content {
+                padding: 15px;
+            }
+            
+            .panel {
+                padding: 15px;
+            }
+            
+            .panel h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 10px;
+            }
+            
+            header img.logo {
+                width: 50px;
+                left: 10px;
+            }
+            
+            header h1 {
+                font-size: 1.3rem;
+                padding-left: 60px;
+                margin-bottom: 5px;
+            }
+            
+            header h2 {
+                font-size: 0.8rem;
+                padding-left: 60px;
+            }
+            
+            .navbar {
+                padding: 8px 0;
+            }
+            
+            .navbar a {
+                padding: 5px 8px;
+                font-size: 0.8rem;
+                margin: 2px;
+            }
+            
+            .panel h2 {
+                font-size: 1.2rem;
+            }
+            
+            .panel h3 {
+                font-size: 1rem;
+            }
+            
+            .panel p, .panel li {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="aboutus_heading">
+        <img src="images/logo.jpg" alt="Adarsh Jan Seva Mandal Logo" class="logo">
+        <h1>Adarsh Jan Seva Mandal</h1> 
+        <h2>Together we can make a difference and change lives</h2>   
+    </header>
+    
+    <nav class="navbar">
+        <a href="index.php">About Us</a>
+        <a href="events.php">Events</a>
+        <a href="donate.php">Donate</a>
+        <a href="community.php">Community</a>
+        <a href="login.php">Login</a>
+    </nav>
+
+    <main class="main-content">
+        <div class="panel">
+            <h2>Who are we?</h2>
+            <p>Adarsh Jan Seva Mandal is a non-profit grassroots social services organisation based out of Mumbai. Since our inception in 1977, we have consistently strived to empower the needy in India.</p>
+        </div>
+        
+        <div class="panel">
+            <h2>Our Story</h2>
+            <p>One day Mr. Haridwar Singh had gone to meet his teacher friend in a municipal school, there he saw the teacher was scolding and beating his student for being absent for many days. After much persuasion, the child revealed that he couldn't afford the school uniform because of which he was absent. Haridwar Singh who witnessed this was moved by the incident and decided to his level best that no needy student is deprived of education due to monetary troubles like the uniform, books, etc. Hence along with like-minded people namely Late Mr. Indradeo Singh (President Awardee), Yadunath Rai, and others founded Adarsh Jan Seva Mandal. The organization was duly registered under the Societies Registration Act on 10 August 1977.</p>
+        </div>
+        
+        <div class="panel">
+            <h2>What We Do?</h2>
+            <ul>
+                <li>
+                    <h3>Child Education Resources</h3>
+                    <p>Many Indian students drop-out of school because of lack of money. We fund their education and help them restart their academic journey. We provide school uniforms, bags and books to these students every year in the month of June. In addition, we also offer monetary assistance to the kids who excel academically.</p>
+                </li>
+                <li>
+                    <h3>Food Donation Drive</h3>
+                    <p>We organise food donation drives at various places like old age homes, orphanages and hospitals. The aim is to help families struggling with food scarcity by providing nutritious food in adequate quantities preventing spoilage.</p>
+                </li>
+                <li>
+                    <h3>Felicitate Social Workers</h3>
+                    <p>We felicitate social workers who have selflessly worked hard for the betterment of the society. We support and encourage such social workers who help set an example for future generations.</p>
+                </li>
+                <li>
+                    <h3>Environment</h3>
+                    <p>We undertake tree plantation programs and also carry out cleanliness drives in different parts of the city. We also organise programs to enlighten the people about their responsibility towards the environment.</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Adarsh Jan Seva Mandal | All Rights Reserved</p>
+    </footer>
+</body>
+</html>

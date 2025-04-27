@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: url('ngovol.jpg') no-repeat center center/cover;
+            color: #333;
+        }
+
+        .login_heading {
+            background: linear-gradient(135deg, #2c3e50, rgb(52,152,219));
+            color: white;
+            padding: 25px 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .login_heading img.logo {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            width: 70px;
+            height: auto;
+            max-width: 100%;
+        }
+        
+        .login_heading h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            padding-left: 80px;
+        }
+        
+        .login_heading h2 {
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            padding-left: 80px;
+        }
+        
+        .loginnavbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            background-color: #34495e;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .loginnavbar a {
+            color: rgb(220, 220, 220);
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 3px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        
+        .loginnavbar a:hover {
+            background-color: #465c71;
+            transform: translateY(-2px);
+        }
+
+        .login-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 20px;
+            width: 100%;
+        }
+
+        .login-box {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+        }
+
+        .login-box h2 {
+            color: rgb(54,116,181);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.95rem;
+            color: #00ffff;
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #00ffff;
+            margin-bottom: 20px;
+        }
+
+        .options a {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .options a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-53 {
+            border: 1px solid;
+            border-radius: 999px;
+            box-sizing: border-box;
+            display: block;
+            font-weight: 900;
+            overflow: hidden;
+            padding: 1.2rem 2.5rem;
+            position: relative;
+            text-transform: uppercase;
+            margin: 0 auto;
+            width: auto;
+            background: none;
+            color: #000;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .btn-53 .original {
+            background: rgb(200,200,200);
+            color: rgb(0,0,0);
+            display: grid;
+            inset: 0;
+            place-content: center;
+            position: absolute;
+            transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1);
+        }
+
+        .btn-53:hover .original {
+            transform: translateY(100%);
+        }
+
+        .btn-53 .letters {
+            display: inline-flex;
+        }
+
+        .btn-53 span {
+            opacity: 0;
+            transform: translateY(-15px);
+            transition: transform 0.2s cubic-bezier(0.87, 0, 0.13, 1), opacity 0.2s;
+        }
+
+        .btn-53 span:nth-child(2n) {
+            transform: translateY(15px);
+        }
+
+        .btn-53:hover span {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-53:hover span:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .btn-53:hover span:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .btn-53:hover span:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        .btn-53:hover span:nth-child(5) {
+            transition-delay: 0.4s;
+        }
+
+        footer {
+            background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(46,204,113,0.9));
+            color: rgb(255,255,255);
+            text-align: center;
+            padding: 15px;
+            font-size: 1.1rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .login_heading h1 {
+                font-size: 1.5rem;
+                padding-left: 70px;
+            }
+            
+            .login_heading h2 {
+                font-size: 0.9rem;
+                padding-left: 70px;
+            }
+            
+            .login_heading img.logo {
+                width: 60px;
+                left: 10px;
+            }
+            
+            .loginnavbar a {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+            }
+            
+            .login-box {
+                padding: 25px;
+            }
+            
+            .login-box h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login_heading {
+                padding: 20px 10px;
+            }
+            
+            .login_heading h1 {
+                font-size: 1.3rem;
+                padding-left: 60px;
+            }
+            
+            .login_heading h2 {
+                font-size: 0.8rem;
+                padding-left: 60px;
+            }
+            
+            .login_heading img.logo {
+                width: 50px;
+                left: 8px;
+            }
+            
+            .loginnavbar {
+                padding: 8px 0;
+            }
+            
+            .loginnavbar a {
+                padding: 5px 8px;
+                font-size: 0.8rem;
+                margin: 2px;
+            }
+            
+            .login-box {
+                padding: 20px;
+            }
+            
+            .login-box h2 {
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+            }
+            
+            .input-group label {
+                font-size: 0.85rem;
+            }
+            
+            .input-group input {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+            
+            .options {
+                font-size: 0.8rem;
+            }
+            
+            .btn-53 {
+                padding: 1rem 2rem;
+                font-size: 0.9rem;
+            }
+            
+            footer {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="login_heading">
+        <img src="images/logo.jpg" alt="Adarsh Jan Seva Mandal Logo" class="logo">
+        <h1>Adarsh Jan Seva Mandal</h1> 
+        <h2>Together we can make a difference and change lives</h2>   
+    </header>
+    
+    <nav class="loginnavbar">
+        <a href="aboutus.html">About Us</a>
+        <a href="events.html">Events</a>
+        <a href="donation.html">Donate</a>
+        <a href="community.html">Community</a>
+        <a href="loginpage.html" class="login-btn">Login</a>
+    </nav>
+
+    <div class="login-container">
+        <form class="login-box">
+            <h2>LOGIN</h2>
+            <div class="input-group">
+                <label for="email">Enter your email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="input-group">
+                <label for="password">Enter your password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+            </div>
+            <div class="options">
+                <label><input type="checkbox"> Remember me</label>
+                
+            </div>
+            <button class="btn-53">
+                <div class="original">LOGIN</div>
+                <div class="letters">
+                    <span>L</span>
+                    <span>O</span>
+                    <span>G</span>
+                    <span>I</span>
+                    <span>N</span>
+                </div>
+            </button>
+        </form>
+    </div>
+    
+    <footer>
+        <p>&copy; <script>document.write(new Date().getFullYear())</script> Adarsh Jan Seva Mandal | All Rights Reserved</p>
+    </footer>
+</body>
+</html>
